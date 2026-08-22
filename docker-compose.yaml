@@ -1,0 +1,14 @@
+services:
+  cyberdeckos:
+    build:
+      context: .
+      dockerfile: app/environment/Dockerfile
+    volumes:
+      # CyberdeckOS is the trusted privileged shim — it needs the Docker socket
+      # to stand up / tear down service containers.
+      - /var/run/docker.sock:/var/run/docker.sock
+    # Host networking so CyberdeckOS can reach the spawned containers' loopback ports.
+    network_mode: host
+    environment:
+      - CYBERDECKOS_TOKEN=${CYBERDECKOS_TOKEN:-}
+    restart: unless-stopped

@@ -1,0 +1,19 @@
+{
+  "name": "@net.webax/cyberdeckos",
+  "version": "0.1.0",
+  "description": "CyberdeckOS — secure Docker service manager for WebAX back-end services.",
+  "type": "module",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json --watch",
+    "test": "node cicda/tests/smoke.mjs",
+    "start": "node dist/main.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0"
+  }
+}
